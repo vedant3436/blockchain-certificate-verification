@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Issue Certificate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Issue / Register Certificate</h2>
+
+  <form method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-primary px-4">Issue Certificate</button>
+    </div>
+  </form>
+
+  {% if messages %}
+  <div class="mt-4">
+    {% for message in messages %}
+    <div class="alert alert-success text-center">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

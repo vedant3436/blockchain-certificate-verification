@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Verify Certificate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Verify Certificate</h2>
+
+  <form method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-success px-4">Verify Certificate</button>
+    </div>
+  </form>
+
+  {% if verification_result %}
+  <div class="mt-4 text-center">
+    {% if verification_result.status == "valid" %}
+    <div class="alert alert-success">
+      ✅ Certificate is <strong>VALID</strong><br>
+      Issued to: <strong>{{ verification_result.owner }}</strong><br>
+      Transaction ID: <code>{{ verification_result.tx }}</code>
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+      ❌ Certificate not found or invalid.
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
