@@ -1,5 +1,5 @@
 
-# Blockchain-Based Certificate Management and Verification System
+# Blockchain Document Verification
 
 A Django-based backend application that enables secure certificate management and real-time verification using cryptographic hashing and the Solana blockchain. The system helps prevent certificate forgery by recording immutable certificate fingerprints on-chain and validating uploaded documents against blockchain transaction data.
 
@@ -76,5 +76,6 @@ This project is developed for academic and learning purposes.
 ## Note on Solana Wallet
 
 This project uses a Solana wallet configured for **Devnet** exclusively. The wallet is intended only for development and academic demonstration purposes and does not contain real funds.
+
 
 
